@@ -21,7 +21,7 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly ______, in addition to restricting access to the network. The installed health probe will also ensure high availablity and visability on any down servers.
+Load balancing ensures that the application will be highly available, in addition to restricting access to the network. The installed health probe will also ensure high availablity and visability on any down servers.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the network and system changes.
 
@@ -38,7 +38,7 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump-Box-Provisioner virtual machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+Only the Jump-Box-Provisioner virtual machine can accept connections from the Internet. Access to this machine is only allowed from the following IP address:
 - My public IP
 
 Machines within the network can only be accessed by Jump-Box-Provisioner (10.0.0.7).
@@ -47,18 +47,18 @@ A summary of the access policies in place can be found in the table below.
 
 | Name                 | Publicly Accessible | Allowed IP Addresses |
 |----------------------|---------------------|----------------------|
-| Jump-Box-Provisioner | Yes/No              | 10.0.0.1 10.0.0.2    |
-| Web-1                | Yes                 |                      |
-| Web-2                | Yes                 |                      |
-| Purp-ELK-1           | No                  | My Public IP         |
+| Jump-Box-Provisioner | Yes                 | My Public IP         |
+| Web-1                | No                  | 10.0.0.7             |
+| Web-2                | No                  | 10.0.0.7             |
+| Purp-ELK-1           | Yes                 | My Public IP         |
 
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it makes the installation of applications streamlined in my virtual machines. This also helps if I am ever interested in scaling up the infrastructure (future-proofing). 
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
+- Installs Docker
+- 
 - ...
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
@@ -71,24 +71,19 @@ This ELK server is configured to monitor the following machines:
 - 10.0.0.6 (Web2)
 
 We have installed the following Beats on these machines:
-- 10.0.0.5 (Web1)
-- 10.0.0.6 (Web2)
-- 10.1.0.5 (Purp_Elk_1)
+- Filebeats
+- Metricbeats
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Log Data and Traffic Data
+- Changes to file structure and access attempts
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- Copy the filebeat-config.yml file to /etc/ansible/files/.
+- Update the hosts file to include the private IP address of the new machine as an Elk server.
+- Run the playbook, and navigate to http://[publicIP]:5601/app/kibana to check that the installation worked as expected.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
