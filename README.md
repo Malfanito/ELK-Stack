@@ -4,9 +4,8 @@ The files in this repository were used to configure the network depicted below.
 
 ![alt text](https://github.com/Malfanito/ELK-Stack/blob/main/Diagrams/ELK%20Stack%20Diagram.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
 
 This document contains the following details:
 - Description of the Topology
@@ -58,8 +57,9 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 - Installs Docker
-- 
-- ...
+- Installs Python3
+- Increase Virtual Memory
+- Install ELK in a docker container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
