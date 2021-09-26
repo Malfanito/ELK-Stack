@@ -82,10 +82,13 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the filebeat-config.yml file to /etc/ansible/files/.
-  - `cd /etc/ansible && mkdir files && curl https://github.com/Malfanito/ELK-Stack/blob/67777e61a89ff4c4e99d0deee32195294b67d437/Ansible/filebeat-config.yml`
-  - You will have to edit the file to represent your private IP
+- Copy the files to /etc/ansible/.
+  - `git clone https://github.com/Malfanito/ELK-Stack`
+  - `cp -r ./Elk-Stack/Ansible /etc/ansible`
+  - You will have to edit the config files for metricbeat and filebeat to represent your private IPs.
 - Update the hosts file to include the private IP address of the new machine as an Elk server.
   - Add [host name] to the bottom of the hosts file
   - Underneath that, add the private IP(s) of the machines. (Note: if using more than one machine, use a new line for each IP)
-- Run the playbook, and navigate to http://[publicIP]:5601/app/kibana to check that the installation worked as expected.
+- Run the playbooks, and navigate to http://[publicIP]:5601/app/kibana to check that the installation worked as expected.
+  -  To run the playbook, run the following command while in the /etc/ansible directory:
+    - `ansible-playbook [playbookfile.yml]`
