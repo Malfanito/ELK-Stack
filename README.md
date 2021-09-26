@@ -83,7 +83,8 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the filebeat-config.yml file to /etc/ansible/files/.
+  - cd /etc/ansible && mkdir files && curl (AEGFNBJKSLWARBGLNBRASG)
 - Update the hosts file to include the private IP address of the new machine as an Elk server.
+  - Add [host name] to the bottom of the hosts file
+  - Underneath that, add the private IP(s) of the machines. (Note: if using more than one machine, use a new line for each IP)
 - Run the playbook, and navigate to http://[publicIP]:5601/app/kibana to check that the installation worked as expected.
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
