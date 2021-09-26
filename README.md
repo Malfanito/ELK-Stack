@@ -83,7 +83,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the filebeat-config.yml file to /etc/ansible/files/.
-  - cd /etc/ansible && mkdir files && curl https://github.com/Malfanito/ELK-Stack/blob/67777e61a89ff4c4e99d0deee32195294b67d437/Ansible/filebeat-config.yml
+  - 'cd /etc/ansible && mkdir files && curl https://github.com/Malfanito/ELK-Stack/blob/67777e61a89ff4c4e99d0deee32195294b67d437/Ansible/filebeat-config.yml'
   - You will have to edit the file to represent your private IP
 - Update the hosts file to include the private IP address of the new machine as an Elk server.
   - Add [host name] to the bottom of the hosts file
